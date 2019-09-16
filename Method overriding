@@ -1,0 +1,42 @@
+Method overriding refers to redefining a function available in the
+parent contract having the same name and signature in the derived
+contract. The next code segment shows this. A parent contract
+contains two functions, SetInteger and GetInteger . A child contract
+inherits from the parent contract and provides its own
+implementation of GetInteger by overriding the function.
+Now, when a call to the GetInteger function is made on the child
+contract even while using a parent contract variable, the child
+contract instance function is invoked. This is because all functions
+in contracts are virtual and based on contract instance; the most
+derived function is invoked, as shown in the following screenshot:
+
+
+*******************Code is Given Below*************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract ParentContract {
+    uint internal simpleInteger;
+    
+    function SetInteger(uint _value) public {
+        simpleInteger=_value;
+    }
+    function GetInteger() public view returns(uint) {
+        return 10;
+    }
+}
+
+contract childContract is ParentContract {
+    function GetInteger() public view returns(uint) {
+        return simpleInteger;
+    }
+}
+
+contract client {
+    ParentContract pc=new childContract();
+    
+    function workWithInheritance() public returns (uint) {
+        pc.SetInteger(100);
+        return pc.GetInteger();
+    }
+}
