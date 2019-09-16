@@ -1,0 +1,49 @@
+Interfaces are like abstract contracts, but there are differences.
+Interfaces cannot contain any definition. They can only contain
+function declarations. It means functions in interfaces cannot
+contain any code. They are also known as pure abstract contracts.
+An interface can contain only the signature of functions. It also
+cannot contain any state variables. They cannot inherit from other
+contracts or contain enums or structures. However, interfaces can
+inherit other interfaces. The function signatures terminate using the
+semicolon ; character. Interfaces are declared using the interface
+keyword following by an identifier. The next code example shows an
+implementation of the interface. Solidity provides the interface
+keyword for declaring interfaces. The IHelloWorld interface is defined
+containing two function signatures— GetValue and SetValue . There are
+no functions containing any implementation. IHelloWorld is
+implemented by the HelloWorld contract. Contract intent to use this
+contract would create an instance as it would do normally as shown
+in the following screenshot:
+
+*******************Code*******************************************************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+interface IHelloWorld {
+    function GetValue() public view returns (uint);
+    function SetValue(uint _value) public;
+}
+
+contract HelloWorld is IHelloWorld {
+    uint public simpleInteger;
+    
+    function GetValue() public view returns(uint) {
+        return simpleInteger;
+    }
+    
+    function SetValue(uint _value) public {
+        simpleInteger=_value;
+    }
+}
+contract client {
+    IHelloWorld myObj;
+    
+    function client() {
+        myObj=new HelloWorld();
+    }
+    function getSetIntegerValue() public returns (uint) {
+        myObj.SetValue(100);
+        return myObj.GetValue();
+    }
+}
