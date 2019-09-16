@@ -1,0 +1,60 @@
+Abstracts contracts are contracts that have partial function
+definitions. You cannot create an instance of an abstract contract.
+An abstract contract must be inherited by a child contract for
+utilizing its functions. Abstract contracts help in defining the
+structure of a contract and any class inheriting from it must ensure
+to provide an implementation for them. If the child contract does
+not provide the implementation for incomplete functions, even its
+instance cannot be created. The function signatures terminate using
+the semicolon, ; , character. There is no Solidity-provided keyword
+to mark a contract as abstract. A contract becomes an abstract class
+if it has functions without implementation.
+The screenshot shown next is an implementation of an abstract
+contract. The abstractHelloWorld contract is an abstract contract as it
+contains a couple of functions without any definitions. GetValue and
+SetValue are function signatures without any implementation. There
+is another method that returns a constant. The purpose of AddaNumber
+is to show that there can be functions within an abstract contract
+containing implementation as well. The abstractHelloWorld abstract
+contract is inherited by the HelloWorld contract that provides
+implementation for all the methods. The client contract creates an
+instance of the HelloWorld contract using the base contract variable
+and invokes its functions as shown in the following screenshot:
+
+
+*****************Code is given below*****************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract abstractHelloWorld {
+    function GetValue() public view returns (uint);
+    function SetValue(uint _value) public;
+    function addaNumber(uint _value) public returns(uint) {
+        return 10;
+    }
+}
+
+contract HelloWorld is abstractHelloWorld{
+    uint public simpleInteger;
+    
+    function GetValue() public view returns(uint) {
+        return simpleInteger;
+    }
+    function SetValue(uint _value) public {
+        simpleInteger=_value;
+    }
+    function addaNumber(uint _value) public returns(uint){
+        return simpleInteger+_value;
+    }
+}
+
+contract client {
+    abstractHelloWorld myObj;
+    function client() {
+        myObj=new HelloWorld();
+    }
+    function GetSetIntegerValue() public returns(uint){
+        myObj.SetValue(100);
+        return myObj.addaNumber(200);
+    }
+}
