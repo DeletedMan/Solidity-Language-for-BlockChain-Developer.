@@ -1,0 +1,24 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract AllAboutInts {
+    uint stateUint=20;
+    uint stateInt=20;
+    
+    function getUInt(uint incomingValue) public returns (uint8)
+    {
+        uint memoryuint=256;
+        uint256 memoryuint256=256;
+        uint8 memoryuint8=8;
+        
+        uint8 assignAfterIncrement=++memoryuint8;
+        uint8 assignBeforeIncrement=memoryuint8++;
+        return memoryuint8;
+    }
+    function getInt(int8 incomingValue) public returns(int8)
+    {
+        int memoryInt=256;
+        int256 memoryInt256=256;
+        int8 memoryInt8=8;
+        incomingValue=memoryInt8;
+    }
+}
