@@ -1,0 +1,57 @@
+The byte data type
+Byte refers to 8 bit signed integers. Everything in memory is stored
+in bits consisting of binary values—0 and 1. Solidity also provides
+the byte data type to store information in binary format. Generally,
+programming languages have a single data type for representing
+bytes. However, Solidity has multiple flavors of the byte type. It
+provides data types in the range from bytes1 to bytes32 inclusive, to
+represent varying byte lengths, as required. These are called fixed
+sized byte arrays and are implemented as value types. The
+bytes1 data type represents 1 byte and bytes2 represents 2 bytes. The
+default value for byte is 0x00 and it gets initialized with this value.
+Solidity also has a byte type that is an alias to bytes1 .
+
+
+**************************Code************************************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract byteContract {
+    bytes1 aa=0x65;
+    bytes1 bb=10;
+    bytes2 cc=256;
+    bytes1 dd='a';
+    bytes1 ee=-100;
+    
+    function getintaa() public returns(uint)
+    {
+        return uint(aa);
+    }
+    function getbyteaa() public returns (bytes1)
+    {
+        return aa;
+    }
+    function getbytebb() public returns(bytes1)
+    {
+        return bb;
+    }
+    function getintbb() public returns(uint){
+        return uint(bb);
+    }
+    function getbytecc() returns (bytes2)
+    {
+        return cc;
+    }
+    function getintcc() returns (uint)
+    {
+        return uint(cc);
+    }
+    function getbytedd() returns (bytes2)
+    {
+        return dd;
+    }
+    function getintdd() returns (uint)
+    {
+        return uint(dd);
+    }
+}
