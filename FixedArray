@@ -1,0 +1,69 @@
+                        Fixed Array
+Fixed arrays refer to arrays that have a pre-determined size
+mentioned at declaration. Examples of fixed arrays are as follows:
+int[5] age ; // array of int with 5 fixed storage space allocated
+byte[4] flags ; // array of byte with 4 fixed storage space allocated
+Fixed arrays cannot be initialized using the new keyword. They can
+only be initialized inline, as shown in the following code:
+int[5] age = [int(10), 20,30,40,50] ;
+They can also be initialized inline within a function later, as follows:
+int[5] age ;
+age = [int(10),2,3,4,5];
+
+                       Dynamic arrays
+                       
+  Dynamic arrays refer to arrays that do not have a pre-determined
+size at the time of declaration; however, their size is determined at
+runtime. Take a look at the following code:
+int[] age ; // array of int with no fixed storage space allocated. Storage is
+allocated during assignment
+byte[] flags ; // array of byte with no fixed storage space allocated
+Dynamic arrays can be initialized inline or using the new operator.
+The initialization can happen at the time of declaration as follows:
+int[] age = [int(10), 20,30,40,50] ;
+int[] age = new int[](5) ;
+The initialization can also happen within a function later in the
+following two different steps:
+int[] age ;
+age = new int[](5) ;
+
+
+                       The bytes array
+                     
+  The bytes array is a dynamic array that can hold any number of
+bytes. It is not the same as byte [] . The byte [] array takes 32 bytes for
+each element whereas bytes tightly holds all the bytes together.
+Bytes can be declared as a state variable with initial length size as
+shown in the following code:
+bytes localBytes = new bytes(0) ;
+This can be also divided into the following two code lines similar to
+previously discussed arrays:
+bytes localBytes ;
+localBytes= new bytes (10) ;
+Bytes can be assigned values directly, as follows:
+localBytes = "Paras Nath";
+Also, values can be pushed into it, as shown in the following code, if
+it is located at the storage location:
+localBytes.push(byte(10));
+Bytes also provide a read/write length property, as follows:
+return localBytes.length; //reading the length property
+Take a look at the following code as well:localBytes.length = 4; //setting bytes length to 4 bytes
+
+                              Strings Array
+                              
+   Strings are dynamic data types that are based on bytes
+arrays discussed in the previous section. They are very similar to
+bytes with additional constraints. Strings cannot be indexed or
+pushed and do not have the length property. To perform any of these
+actions on string variables, they should first be converted into bytes
+and then converted back to strings after the operation.
+Strings can be composed of characters within single or double
+quotes.
+Strings can be declared and assigned values directly, as follows:
+String name = 'Ritesh Modi" ;
+They can be also converted to bytes, as follows:
+Bytes byteName = bytes(name) ;
+
+                       
+                     
+
