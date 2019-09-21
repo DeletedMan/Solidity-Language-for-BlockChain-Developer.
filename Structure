@@ -1,0 +1,23 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract generalStructure {
+    
+    struct myStruct {
+        string name;
+        uint myAge;
+        bool isMarried;
+        uint[] bankAccountsNumbers;
+    }
+    myStruct stateStructure=myStruct("Paras Nath",23,false,new uint[](2));
+    myStruct stateStructure1;
+    
+    function getAge() public returns (uint) {
+        myStruct memory localStructure=myStruct("Paras",23,false,new uint[](2));
+        
+        myStruct pointStructure=stateStructure;
+        myStruct memory pointerlocalStructure=localStructure;
+        localStructure.myAge=30;
+        stateStructure1=myStruct("Ajay",10,true,new uint[](2));
+        return pointerlocalStructure.myAge;
+    }
+}
