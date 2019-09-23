@@ -1,0 +1,30 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract Enums {
+    enum status {created,approved,provisioned,rejected,deleted}
+    status myStatus=status.provisioned;
+    
+    function returnEnum() public returns (status)
+    {
+        status stat=status.created;
+        return stat;
+    }
+    
+    function returnenumInt() public returns(uint)
+    {
+        status stat=status.approved;
+        return uint(stat);
+    }
+    
+    function passByValue() public returns(uint) {
+        status stat=myStatus;
+        myStatus=status.rejected;
+        return uint(myStatus);
+    }
+    
+    function assignInteger() public returns (uint) {
+        status stat=myStatus;
+        myStatus=status(2);
+        return uint(myStatus);
+    }
+}
