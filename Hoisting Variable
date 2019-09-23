@@ -1,0 +1,33 @@
+                        Variables hoisting
+Hoisting a concept is where variables need not be declared and
+initialized before using the variable. The variable declaration can
+happen at any place within a function, even after using it. This is
+known as variable hoisting. The Solidity compiler extracts all
+variables declared anywhere within a function and places them at
+the top or beginning of a function and we all know that declaring a
+variable in Solidity also initializes them with their respective default
+values. This ensures that the variables are available throughout the
+function.
+In the following example, firstVar , secondVar , and result are declared
+towards the end of the function but utilized at the beginning of the
+function. However, when the compiler generates the bytecode for
+the contract, it declares all variables as the first set of instructions in
+a function as shown in the following screenshot:
+
+
+******************Code************************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract variableHoisting{
+    
+    function hoistingDemo() pure returns (uint) {
+        firstVar=10;
+        secondvar=20;
+        result=firstVar+secondvar;
+        uint firstVar;
+        uint secondvar;
+        uint result;
+        return result;
+    }
+}
