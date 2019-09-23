@@ -1,0 +1,22 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract mappingLooping {
+    mapping (uint=>address) Names;
+    uint counter;
+    
+    function addtoMapping(address addressDetails) public returns(uint) {
+        counter=counter+1;
+        Names[counter]=addressDetails;
+        return counter;
+    }
+    
+    function getMappingMember(uint id) public returns (address[])
+    {
+        address[] memory localBytes=new address[](counter);
+        for(uint i=1;i<=counter;i++)
+        {
+            localBytes[i-1]=Names[i];
+        }
+        return localBytes;
+    }
+}
