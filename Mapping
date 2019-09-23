@@ -1,0 +1,45 @@
+
+                                Mappings
+Mappings are one of the most used complex data types in Solidity.
+Mappings are similar to hash tables or dictionaries in other
+languages. They help in storing key-value pairs and enable
+retrieving values based on the supplied key.
+Mappings are declared using the mapping keyword followed by data
+types for both key and value separated by the => notation. Mappings
+have identifiers like any other data type and they can be used to
+access the mapping.
+An example of mapping is as follows:
+Mapping ( uint => address ) Names ;
+In the preceding code, the uint data type is used for storing the keys
+and the address data type is used for storing the values. Names is used as
+an identifier for the mapping.
+Although it is similar to a hash table and dictionary, Solidity does
+not allow iterating through mapping. A value from mapping can be
+retrieved if the key is known. The next example illustrates working
+with mapping. A counter of type uint is maintained in a contract that
+acts as a key and address details are stored and retrieved with the
+help of functions.
+To access any particular value in mapping, the associated key
+should be used along with the mapping name as shown here:
+Names[counter]To store a value in mapping, use the following syntax:
+Names[counter] = <<some value>>
+Take a look at the following screenshot:
+
+************************Code*********************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract GeneralMapping {
+    mapping (uint => address) Names;
+    
+    uint Counter;
+    
+    function addtoMapping(address addressDetails) public returns(uint) {
+        Counter=Counter+1;
+        Names[Counter]=addressDetails;
+        return Counter;
+    }
+    function getMappingMember(uint id) public returns(address) {
+        return Names[id];
+    }
+}
