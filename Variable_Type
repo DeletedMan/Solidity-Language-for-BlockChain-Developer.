@@ -1,0 +1,58 @@
+                    
+                    
+                  The var type variables
+                  
+One Solidity type that was not discussed in the last chapter is the var
+data type. var is a special type that can only be declared within a
+function. There cannot be a state variable in a contract of type var .
+Variables declared with the var type are known as implicitly typed
+variable because var does not represent any type explicitly. It
+informs the compiler that its type is dependent and determined by
+the value assigned to it the first time. Once a type is determined, it
+cannot be changed.
+The compiler decides the final data type for the var variables instead of a
+developer mentioning the type. It is therefore quite possible that the type
+determined by the block.difficulty (uint) current block compiler might not
+exactly be the type expected by code execution. var cannot be used with the
+explicit usage of memory location. An explicit memory location needs an
+explicit variable type.
+An example of var is shown in the following screenshot. Variable
+uintVar8 is of type uint8 , variable uintVar16 is of type uint16 , variable
+intVar8 is of type int8 (signed integer), variable intVar16 is of type int16
+(signed integer), variable boolVar is of type bool, variable stringVar is of
+type string, variable bytesVar is of type bytes, variable arrayInteger is of
+type uint8 array, and variable arrayByte is of type bytes10 array:
+
+************************Code************************************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract VarExamples {
+        function VarTypes(){
+            var uintVar8=10;
+            //uintVar8=256;
+            
+            var uintVar16=256;
+            //uintVar16=554;
+            
+            var intVar8=-1;
+            
+            var intVar16=-129;
+            
+            var boolVar=true;
+            boolVar=false;
+            
+            var stringVar="0X10";
+            stringVar="10";
+            
+            var bytesVar=0x100;
+            
+            var Var=hex"001122FF";
+            
+            var arrayInteger=[uint8(1),2];
+            arrayInteger[1]=255;
+            
+            var arrayByte=bytes10(0x2222);
+            arrayByte=0x11111111111111111111;
+        }
+}
