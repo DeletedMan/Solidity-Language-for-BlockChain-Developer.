@@ -1,0 +1,26 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract TransactionAndMessageVariables {
+    event logsstring(string);
+    event loguint(uint);
+    event logbytes(bytes);
+    event logaddress(address);
+    event logbyte4(bytes4);
+    event logblock(bytes32);
+    
+    function globalVariable() payable {
+        logaddress(block.coinbase);
+        loguint(block.difficulty);
+        loguint(msg.gas);
+        loguint(tx.gasprice);
+        loguint(block.number);
+        loguint(block.timestamp);
+        loguint(now);
+        logbytes(msg.data);
+        logbyte4(msg.sig);
+        loguint(msg.value);
+        logaddress(msg.sender);
+        logaddress(tx.origin);
+        logblock(block.blockhash(block.number));
+    }
+}
