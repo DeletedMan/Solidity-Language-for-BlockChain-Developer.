@@ -1,0 +1,49 @@
+*************Without Modifier**************
+pragma solidity >=0.4.0 <0.6.0;
+
+contract contractWithoutModifier {
+    address owner;
+    int public mydata;
+    
+    function contractWithoutModifier() {
+        owner=msg.sender;
+    }
+    function AssignDoubleValue(int _data) public {
+        if(msg.sender==owner)
+        {
+            mydata=_data*2;
+        }
+    }
+    function AssignTenerValue(int _data) public {
+        if(msg.sender==owner)
+        {
+            mydata=_data*10;
+        }
+    }
+}
+
+
+***************************With Modifier*********************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract contractWithModifier {
+    address owner;
+    int public mydata;
+    
+    function ContractWithoutModifier() {
+        owner=msg.sender;
+    }
+    
+    modifier isOwner {
+        if(msg.sender==owner) {
+            _;
+        }
+    }
+    function AssignDoubleValue(int _data) public isOwner {
+        mydata=_data*2;
+    }
+    function AssignTenerVale(int _data) public {
+        mydata=_data*10;
+    }
+}
