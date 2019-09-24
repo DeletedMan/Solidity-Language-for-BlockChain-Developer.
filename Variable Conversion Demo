@@ -1,0 +1,35 @@
+pragma solidity >=0.4.0 <0.6.0;
+
+contract ConversionDemo {
+    
+    function ConvertionExplicitUINT8toUINT256() public returns (uint) {
+        uint8 myVariable=10;
+        uint256 someVariable=myVariable;
+        return someVariable;
+    }
+    
+    function ConvertionExplicitUINT256toUINT8() public returns (uint8){
+     uint256 myVariable=10;
+     uint8 someVariable=uint8(myVariable);
+     return someVariable;
+    }
+    
+    function ConvertionExplicitUINT256toUINT81() public returns(uint8) {
+        uint256 myVariable=10000134;
+        uint8 someVariable=uint8(myVariable);
+        return someVariable;
+    }
+    
+    function Convertions() {
+        uint256 myVariable=10000134;
+        uint someVariable=100;
+       // bytes byte4=0x65666768;
+        bytes1 byte1=0x65;
+        //byte1=bytes1(byte4);
+        //byte4=byte1;
+        myVariable=someVariable;
+        string memory name="Paras";
+        bytes memory nameInBytes=bytes(name);
+        name=string(nameInBytes);
+    }
+}
