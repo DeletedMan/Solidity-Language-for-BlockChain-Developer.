@@ -1,0 +1,22 @@
+              Cryptography global variables
+Solidity provides cryptographic functions for hashing values within
+contract functions. There are two hashing functions—SHA2 and
+SHA3.
+The sha3 function converts the input into a hash based on the sha3
+algorithm while sha256 converts the input into a hash based on the
+sha2 algorithm. There is another function, keccak256 , which is an alias
+of the SHA3 algorithm. It is recommended to use the keccak256 or sha3
+functions for hashing needs.
+The following screenshot of the code segment illustrates this:
+
+
+****************************Code**********************************
+
+pragma solidity >=0.4.0 <0.6.0;
+
+contract CryptoFunctions {
+    
+    function cryptoDemo() public returns (bytes32,bytes32,bytes32) {
+     return(sha256("paras"),keccak256("paras"),sha3("paras"));   
+    }
+}
