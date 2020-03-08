@@ -1,0 +1,15 @@
+pragma solidity ^0.4.25;
+
+contract pubpri{
+    uint a=1;
+    uint public b=1;
+    
+    function getValue() public returns(uint)
+    {
+        return a;
+    }
+    function show() private returns(string)
+    {
+        return "Hello";
+    }
+}
