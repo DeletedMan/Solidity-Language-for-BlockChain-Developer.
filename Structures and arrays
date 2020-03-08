@@ -1,0 +1,12 @@
+pragma solidity ^0.4.25;
+
+contract arrayDemo {
+    
+    struct student {
+        uint id;
+        string name;
+    }
+    
+    uint[] array1;
+    uint[20] array2;
+}
