@@ -1,0 +1,12 @@
+pragma solidity ^0.4.25;
+
+contract abc{
+    uint8 a=1;
+    uint16 b=2;
+    uint c=3;
+    
+    function getValueOfabc() public view returns(uint8,uint16,uint)
+    {
+      return (a,b,c);  
+    }
+}
