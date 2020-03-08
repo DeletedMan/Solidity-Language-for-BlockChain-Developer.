@@ -1,0 +1,13 @@
+pragma solidity ^0.4.25;
+
+contract abc {
+    uint a =12;
+    uint8 b =5;
+    uint16 c=514;
+    
+    function add() public returns(uint)
+    {
+        uint d=a + uint(b) + uint(c);
+        return d;
+    }
+}
