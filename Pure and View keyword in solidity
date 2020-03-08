@@ -1,0 +1,16 @@
+pragma solidity ^0.4.25;
+
+contract abc {
+    uint a=56;
+    
+    function showValueOfa() public view returns(uint)
+    {
+        return a;
+    }
+    
+    function add(uint8 b,uint8 c) public pure returns(uint8)
+    {
+        uint8 d=c+b;
+        return (d);
+    }
+}
