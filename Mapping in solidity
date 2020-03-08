@@ -1,0 +1,19 @@
+pragma solidity ^0.4.25;
+
+contract mpping
+{
+    uint id=0;
+    mapping(uint => string) namelist;
+    
+    function setValue(string username) public {
+        id++;
+        namelist[id]=username;
+    }
+    function getValue(uint id) public view returns(string) {
+        return namelist[id];
+    }
+    
+    function totalUsers() public view returns(uint) {
+        return id;
+    }
+}
