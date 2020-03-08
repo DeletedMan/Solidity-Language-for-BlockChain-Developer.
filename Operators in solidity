@@ -1,0 +1,40 @@
+pragma solidity ^0.4.25;
+
+contract abc {
+    uint a=9;
+    uint b=9;
+    uint c=0;
+    
+    function getValueofa() public view returns(uint)
+    {
+        return a;
+    }
+    function getValueofb() public view returns(uint)
+    {
+        return b;
+    }
+    function getValueofc() public view returns(uint)
+    {
+        return c;
+    }
+    function add() public
+    {
+        c=a+b;
+    }
+    function sub() public
+    {
+        c=a-b;
+    }
+    function div() public
+    {
+        c=a/b;
+    }
+    function mod() public
+    {
+        c=a%b;
+    }
+    function exponent() public
+    {
+        c=a**b;
+    }
+}
