@@ -1,0 +1,13 @@
+pragma solidity ^0.4.25;
+
+contract loop {
+    function soNNumbers(uint n) public pure returns(uint)
+    {
+        uint sum=0;
+        for(uint i=0;i<=n;i++)
+        {
+            sum+=i;
+        }
+        return sum;
+    }
+}
