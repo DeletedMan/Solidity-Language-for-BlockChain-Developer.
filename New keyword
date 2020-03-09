@@ -1,0 +1,20 @@
+pragma solidity ^0.4.25;
+
+contract MakkerSka1 {
+    uint private a;
+    function setValue(uint _a) public {
+        a=_a;
+    }
+    function getValue() public view returns(uint)
+    {
+        return a;
+    }
+}
+contract HackerSka2 {
+    function creatNewInstance(uint number) public returns(uint) 
+    {
+        MakkerSka1 obj1= new MakkerSka1();
+        obj1.setValue(number);
+        return obj1.getValue()+10;
+    }
+}
