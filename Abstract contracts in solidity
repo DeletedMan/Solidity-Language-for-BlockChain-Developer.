@@ -1,0 +1,25 @@
+pragma solidity ^0.4.25;
+
+contract abstractDemo {
+    function setvalue(uint _a) public;
+    function getvalue() public view returns(uint);
+}
+
+contract abstractDemoInherit is abstractDemo {
+    uint a;
+    function setvalue(uint _a) public {
+        a=_a;
+    }
+    function getvalue() public view returns(uint){
+        return a;
+    }
+}
+
+contract call {
+    abstractDemoInherit obj1 = new abstractDemoInherit();
+    
+    function callme() public returns(uint) {
+        obj1.setvalue(20);
+        return obj1.getvalue();
+    }
+}
