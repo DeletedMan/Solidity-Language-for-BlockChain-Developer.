@@ -1,0 +1,21 @@
+pragma solidity ^0.4.25;
+
+
+contract hakkerSka{
+    uint8 public a;
+    uint16 public b;
+    
+    function setVaribale(uint8 _a) public {
+        a=_a;
+    }
+    function setVaribale(uint16 _b) public {
+        b=_b;
+    }
+    function setVaribale(uint8 _a1,uint8 _a2) public {
+        a=_a1 + _a2;
+    }
+    function setVaribale(uint16 _b1,uint16 _b2,uint16 _b3)
+    {
+        b=_b1+_b2+_b3;
+    }
+}
