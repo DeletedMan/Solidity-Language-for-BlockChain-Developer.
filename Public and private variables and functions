@@ -13,3 +13,58 @@ contract pubpri{
         return "Hello";
     }
 }
+********************************Code*********************************************************************
+pragma solidity ^0.4.25;
+
+contract abc {
+    uint private data;
+    uint public info;
+    
+    function abc()
+    {
+        info=10;
+    }
+    function increment(uint a) private pure returns(uint) 
+    {
+        return(a+1);
+    }
+    function updateData(uint a) public 
+    {
+        data=a;
+    }
+    function getData() public view returns(uint)
+    {
+        return data;
+    }
+    function compute(uint a,uint b) internal pure returns(uint)
+    {
+        return (a+b);
+    }
+}
+contract D {
+    function readData() public returns(uint)
+    {
+        abc c = new abc();
+        c.updateData(10);
+        return c.getData();
+    }
+}
+contract abc1 is abc {
+    uint private result;
+    abc private c;
+    
+    function abc1() public {
+        c= new abc();
+    }
+    function getComputedResult() public {
+        result=compute(3,5);
+    }
+    function getResult() public view returns(uint)
+    {
+        return result;
+    }
+    function getData() public view returns(uint)
+    {
+        return c.info();
+    }
+}
