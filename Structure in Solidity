@@ -1,0 +1,18 @@
+pragma solidity ^0.4.25;
+
+contract test {
+    struct Book {
+        string title;
+        string author;
+        uint book_id;
+    }
+    Book book;
+    function setBook(string _title,string _author,uint _book_id) public {
+        book.title=_title;
+        book.author=_author;
+        book.book_id=_book_id;
+    }
+    function getBookId() public view returns(string,string,uint) {
+        return(book.title,book.author,book.book_id);
+    }
+}
